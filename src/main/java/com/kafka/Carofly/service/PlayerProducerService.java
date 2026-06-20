@@ -8,4 +8,8 @@ public class PlayerProducerService {
     @Autowired
     public PlayerProducer producer;
     PlayerProducerService(PlayerProducer producer){this.producer=producer;}//Binding PlayerProducer in GameApp
+
+    public String getPlayerProducerId(String playerId) {
+        return playerId;
+    }
 }
