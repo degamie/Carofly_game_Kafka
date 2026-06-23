@@ -3,10 +3,12 @@ package com.kafka.Carofly.service;
 
 import com.kafka.Carofly.dto.PlayerProducer;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.kafka.core.KafkaTemplate;
 
 public class PlayerProducerService {
     @Autowired
     public PlayerProducer producer;
+
     public void setPlayerProdcuerName(String playerProducerName){this.playerproducername=playerproducername;}//binding PlayerProducerName in GameApp
     public String getplayerproducerName(String playerProducerName){return playerProducerName;}//Fetching PlayerProducerName in app
     public void setPlayerProducerId(String playerId) {
