@@ -1,13 +1,29 @@
 //WID(23/6/2026)(Sarthak Mittal(DegamieSign)#1.1
 package com.kafka.Carofly.service;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.kafka.Carofly.dto.PlayerProducer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;
+import tools.jackson.databind.ObjectMapper;
+
+import java.util.logging.Logger;
 
 public class PlayerProducerService {
+    public Logger logger;
+    String playerIdAsString = "";
+    public ObjectMapper objectMapper;
+    public  final String PLAYER_TOPIC=new String();
+    public KafkaTemplate kafkaTemplate;
     @Autowired
     public PlayerProducer producer;
+    public Object publishMessagetoKafka(PlayerProducer playerProducer) throws RuntimeException, JsonProcessingException {
+        playerIdAsString = objectMapper.writeValueAsString(playerProducer);
+        kafkaTemplate.send(PLAYER_TOPIC, playerIdAsString);
+        logger.info("Message Sent To Kafka" + playerIdAsString);
+
+        return "Its Been Sent to kafka,Pls Check";
+    }
 
     public void setPlayerProdcuerName(String playerProducerName){this.playerproducername=playerproducername;}//binding PlayerProducerName in GameApp
     public String getplayerproducerName(String playerProducerName){return playerProducerName;}//Fetching PlayerProducerName in app

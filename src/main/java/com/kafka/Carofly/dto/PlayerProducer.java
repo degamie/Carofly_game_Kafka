@@ -25,5 +25,6 @@ public class PlayerProducer {
     public  int score;
     public LocalTime playermodifieddate;
     public  Integer plaayerspeedaccuracy;
+
 }
 
