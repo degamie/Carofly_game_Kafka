@@ -1,4 +1,4 @@
-//WID(24/6/2026)(Sarthak Mittal(Player producer)#1.1.1.1
+//WID(25/6/2026)(Sarthak Mittal(Player producer)#1.1.1.1
 package com.kafka.Carofly.Controller;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -7,10 +7,12 @@ import com.kafka.Carofly.service.PlayerProducerService;
 import org.apache.kafka.clients.producer.ProducerRecord;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import tools.jackson.databind.ObjectMapper;
 
 import java.util.logging.Logger;
+@Controller
 @RequestMapping("/player_producer")
 @RestController
 public class PlayerProducerController {

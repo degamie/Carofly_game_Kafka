@@ -10,6 +10,9 @@ import tools.jackson.databind.ObjectMapper;
 import java.util.logging.Logger;
 
 public class PlayerProducerService {
+    public PlayerProducerService(PlayerProducer producer){
+        this.producer=producer;
+    }
     public Logger logger;
     String playerIdAsString = "";
     public ObjectMapper objectMapper;
@@ -30,7 +33,7 @@ public class PlayerProducerService {
     public void setPlayerProducerId(String playerId) {
         this.playerId=playerId;
     }
-    PlayerProducerService(PlayerProducer producer){this.producer=producer;}//Binding PlayerProducer in GameApp
+//    PlayerProducerService(PlayerProducer producer){this.producer=producer;}//Binding PlayerProducer in GameApp
 
 
     public String getPlayerProducerId(String playerId) {
