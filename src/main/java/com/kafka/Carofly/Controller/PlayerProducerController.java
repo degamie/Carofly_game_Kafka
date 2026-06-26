@@ -1,4 +1,4 @@
-//WID(25/6/2026)(Sarthak Mittal(Player producer)#1.1.1.1
+//WID(26/06/2026)(Sarthak Mittal(Player producer)#1.1.1.1.1
 package com.kafka.Carofly.Controller;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -16,7 +16,9 @@ import java.util.logging.Logger;
 @RequestMapping("/player_producer")
 @RestController
 public class PlayerProducerController {
+    public void setObjectMapper(ObjectMapper objectMapper){this.objectMapper=objectMapper;}//binding ObjectMapper
     public ObjectMapper objectMapper;
+
     public  final String PLAYER_TOPIC=new String();
     public KafkaTemplate kafkaTemplate;
     String playerIdAsString = "";
