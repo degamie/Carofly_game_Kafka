@@ -1,4 +1,4 @@
-//WID(23/6/2026)(Sarthak Mittal(DegamieSign)#1.1
+//WID(27/6/2026)(Sarthak Mittal(DegamieSign)#1.1.1
 package com.kafka.Carofly.service;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -10,6 +10,7 @@ import tools.jackson.databind.ObjectMapper;
 import java.util.logging.Logger;
 
 public class PlayerProducerService {
+    public void setlogger(Logger logger){this.logger=logger;}//binding Logger In App
     public PlayerProducerService(PlayerProducer producer){
         this.producer=producer;
     }
