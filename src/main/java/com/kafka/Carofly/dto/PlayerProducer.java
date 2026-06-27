@@ -1,15 +1,14 @@
-//WID(23/05/2026)(Sarthak Mittal(DegamieSign)(ProducerCls)
+//WID(27/05/2026)(Sarthak Mittal(DegamieSign)(ProducerCls)
 package com.kafka.Carofly.dto;
 
 //import com.networknt.schema.format.TimeFormat;
-import jakarta.persistence.*;
-import lombok.*;
-import org.springframework.kafka.core.KafkaTemplate;
-
 import java.time.LocalTime;
+
+import org.springframework.kafka.core.KafkaTemplate;
 
 
 public class PlayerProducer {
+    public void setplayerSpeedaccuracy(Integer playerspeedaccuracy){this.playerspeedaccuracy=playerspeedaccuracy;}
     public KafkaTemplate<String,String> kafkaTemplate=null;
     public String getPlayerId(String playerId){return playerId;}//Fetching PlayerID in GameApp
     PlayerProducer(String playerId,String playername,int score,LocalTime playermodifieddate,Integer plaayerspeedaccuracy){
@@ -25,6 +24,7 @@ public class PlayerProducer {
     public  int score;
     public LocalTime playermodifieddate;
     public  Integer plaayerspeedaccuracy;
+
 
 }
 
