@@ -1,4 +1,4 @@
-//WID(27/6/2026)(Sarthak Mittal(DegamieSign)(PlayerProduicerService)
+//WID(01/07/2026)(Sarthak Mittal(DegamieSign)(PlayerProduicerService)#1
 package com.kafka.Carofly.service;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -18,6 +18,7 @@ public class PlayerProducerService {
     }
     public Logger logger;
     String playerIdAsString = "";
+    public void setPlayerIdAsString(String playerIdAsString){this.playerIdAsString=playerIdAsString;}//binding PlayerIdAsString in GameApp
     public ObjectMapper objectMapper;
     public  final String PLAYER_TOPIC=new String();
     public KafkaTemplate kafkaTemplate;
