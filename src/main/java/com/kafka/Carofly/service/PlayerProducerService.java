@@ -1,4 +1,4 @@
-//WID(01/07/2026)(Sarthak Mittal(DegamieSign)(PlayerProduicerService)#1
+//WID(01/07/2026)(Sarthak Mittal(DegamieSign)(PlayerProduicerService)#1.1
 package com.kafka.Carofly.service;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -10,6 +10,7 @@ import tools.jackson.databind.ObjectMapper;
 import java.util.logging.Logger;
 
 public class PlayerProducerService {
+    public void setLogger(Logger logger){this.logger=logger;}//bidning Logger in GameApp
     public void setKafkaTemplate(KafkaTemplate kafkaTemplate){this.kafkaTemplate=kafkaTemplate;}//binding  Kafka Template in GameApp
 
     public void setlogger(Logger logger){this.logger=logger;}//binding Logger In App
