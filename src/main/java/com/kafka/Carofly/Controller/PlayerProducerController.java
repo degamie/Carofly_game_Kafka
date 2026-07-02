@@ -1,4 +1,4 @@
-//WID(26/06/2026)(Sarthak Mittal(Player producer)#1.1.1.1.1
+//WID(02/07/2026)(Sarthak Mittal(Player producerController)
 package com.kafka.Carofly.Controller;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import tools.jackson.databind.ObjectMapper;
 
+import java.util.List;
 import java.util.logging.Logger;
 @Controller
 @RequestMapping("/player_producer")
@@ -25,6 +26,10 @@ public class PlayerProducerController {
      public Logger logger;
     @Autowired
     public PlayerProducerService playerProducerService;
+    @GetMapping("/producerName")
+    public List<PlayerProducer>getPlayerName(@RequestParam String PlayerName,@RequestBody PlayerProducer playerProducer){
+        return playerProducerService.getplayerproducerName(PlayerName,playerProducer);
+    }
     @PostMapping("/publish/msg")
     public void publishMessagetoKafka(@RequestBody PlayerProducer playerProducer) throws RuntimeException, JsonProcessingException {
         System.out.println(playerProducerService.publishMessagetoKafka(playerProducer));

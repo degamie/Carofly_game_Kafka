@@ -36,7 +36,7 @@ public class PlayerProducerService {
     }
 
     public void setPlayerProdcuerName(String playerProducerName){this.playerproducername=playerproducername;}//binding PlayerProducerName in GameApp
-    public String getplayerproducerName(String playerProducerName){return playerProducerName;}//Fetching PlayerProducerName in app
+    public String getplayerproducerName(String playerProducerName, PlayerProducer playerProducer){return playerProducerName;}//Fetching PlayerProducerName in app
     public void setPlayerProducerId(String playerId) {
         this.playerId=playerId;
     }
