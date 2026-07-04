@@ -1,4 +1,4 @@
-//WID(03/07/2026)(Sarthak Mittal(DegamieSign)(PlayerProduicerService)#1.1.1
+//WID(04/07/2026)(Sarthak Mittal(DegamieSign)(PlayerProduicerService)#1.1.1
 package com.kafka.Carofly.service;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -10,6 +10,7 @@ import tools.jackson.databind.ObjectMapper;
 import java.util.logging.Logger;
 
 public class PlayerProducerService {
+    public void setPLAYER_TOPIC(String PLAYER_TOPIC){this.PLAYER_TOPIC=PLAYER_TOPIC;}//Binding PLAYERTOPIC in GameApp
     PlayerProducerService(String playerIdAsString){
         this.playerIdAsString=playerIdAsString;
     }
@@ -25,7 +26,7 @@ public class PlayerProducerService {
     String playerIdAsString = "";
     public void setPlayerIdAsString(String playerIdAsString){this.playerIdAsString=playerIdAsString;}//binding PlayerIdAsString in GameApp
     public ObjectMapper objectMapper;
-    public  final String PLAYER_TOPIC=new String();
+    public String PLAYER_TOPIC=new String();
     public KafkaTemplate kafkaTemplate;
 
     @Autowired
