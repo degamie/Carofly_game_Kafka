@@ -1,4 +1,4 @@
-//WID(05/07/2026)(Sarthak Mittal(DegamieSign)(ProducerCls)
+//WID(07/07/2026)(Sarthak Mittal(DegamieSign)(ProducerCls)
 package com.kafka.Carofly.dto;
 
 //import com.networknt.schema.format.TimeFormat;
@@ -9,7 +9,7 @@ import org.springframework.kafka.core.KafkaTemplate;
 
 
 public class PlayerProducer {
-
+public void setPlaayerspeedaccuracy(Integer plaayerspeedaccuracy){this.plaayerspeedaccuracy=plaayerspeedaccuracy;}//binding PlayerAccuracy in GameApp
     public String getPlayername() {
         return playername;
     }
