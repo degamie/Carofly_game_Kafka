@@ -1,4 +1,4 @@
-//WID(02/07/2026)(Sarthak Mittal(Player producerController)
+//WID(09/07/2026)(Sarthak Mittal(Player producerController)
 package com.kafka.Carofly.Controller;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -17,6 +17,7 @@ import java.util.logging.Logger;
 @RequestMapping("/player_producer")
 @RestController
 public class PlayerProducerController {
+    public void setLogger(Logger logger){this.logger=logger;}//binding Logger in GameApp
     public void setObjectMapper(ObjectMapper objectMapper){this.objectMapper=objectMapper;}//binding ObjectMapper
     public ObjectMapper objectMapper;
 
