@@ -1,4 +1,4 @@
-//WID(9/07/2026)(Sarthak Mittal(DegamieSign)(PlayerProduicerService)#1.1.1
+//WID(9/07/2026)(Sarthak Mittal(DegamieSign)(PlayerProduicerService)#1.1.1.1
 package com.kafka.Carofly.service;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -10,6 +10,10 @@ import tools.jackson.databind.ObjectMapper;
 import java.util.logging.Logger;
 
 public class PlayerProducerService {
+    public  void existsByplayerTopic(String playerTopic){
+        if(playerTopic.length()!=0)getPlayerTopic(playerTopic);
+        else getPlayerTopic(0);
+    }
     public  String playerTopic=null;
     private void  setPlayerTopic(String playerTopic) {this.playerTopic=playerTopic;}
     private   String getPlayerTopic(String playerTopic) {return playerTopic;}
