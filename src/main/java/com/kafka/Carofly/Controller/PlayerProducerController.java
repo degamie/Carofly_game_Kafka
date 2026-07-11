@@ -17,6 +17,7 @@ import java.util.logging.Logger;
 @RequestMapping("/player_producer")
 @RestController
 public class PlayerProducerController {
+//    public void setObjectMapper(ObjectMapper objectMapper){t}
     public void setLogger(Logger logger){this.logger=logger;}//binding Logger in GameApp
     public void setObjectMapper(ObjectMapper objectMapper){this.objectMapper=objectMapper;}//binding ObjectMapper
     public ObjectMapper objectMapper;

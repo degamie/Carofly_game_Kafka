@@ -1,4 +1,4 @@
-//WID(07/07/2026)(Sarthak Mittal(DegamieSign)(ProducerCls)
+//WID(11/07/2026)(Sarthak Mittal(DegamieSign)(ProducerCls)
 package com.kafka.Carofly.dto;
 
 //import com.networknt.schema.format.TimeFormat;
@@ -13,15 +13,16 @@ public void setPlaayerspeedaccuracy(Integer plaayerspeedaccuracy){this.plaayersp
     public String getPlayername() {
         return playername;
     }
-
-    @DateTimeFormat
-    public LocalTime playermodifieddate;
-    public void setPlayermodifieddate(LocalTime playermodifieddate){this.playermodifieddate=playermodifieddate;}//binding PlayerModeifitedDate
     public  Integer plaayerspeedaccuracy;
 
     public String playerId;
     public String playername;
     public  int score;
+    public void setscore(int score){this.score=score;}//bindinng Score in GameApp
+
+    @DateTimeFormat
+    public LocalTime playermodifieddate;
+    public void setPlayermodifieddate(LocalTime playermodifieddate){this.playermodifieddate=playermodifieddate;}//binding PlayerModeifitedDate
 
 
     public void setPlayerId(String playerId){this.playerId=playerId;}//binding PlayerId in GameApp
