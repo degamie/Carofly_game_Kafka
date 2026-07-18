@@ -1,4 +1,4 @@
-//WID(14/07/2026)(Sarthak Mittal(Player producerController)#Impl
+//WID(18/07/2026)(Sarthak Mittal(Player producerController)#Impl.1
 package com.kafka.Carofly.Controller;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -6,6 +6,10 @@ import com.kafka.Carofly.dto.PlayerProducer;
 import com.kafka.Carofly.service.PlayerProducerService;
 import org.apache.kafka.clients.producer.ProducerRecord;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.http.ResponseEntity;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -17,6 +21,19 @@ import java.util.logging.Logger;
 @RequestMapping("/player_producer")
 @RestController
 public class PlayerProducerController {
+    @GetMapping("/producer")
+    public ResponseEntity<PlayerProducer> getPlayerProducer(
+            @RequestParam(defaultValue = "0")int page, @RequestParam(defaultValue = "10")int size,@RequestParam(defaultValue = "asc") String direction,@RequestParam(defaultValue = "playerid") String sortby){
+        Sort sort = direction.equalsIgnoreCase("desc")
+                ? Sort.by(sortby).descending()
+                : Sort.by(sortby).ascending();
+
+        // Guardrail: Avoid massive page sizes requested by malicious clients
+        int safeSize = Math.min(size, 100);
+        Pageable pageable= PageRequest.of(page,size, Sort.Direction.valueOf(direction),sortby);
+        return  ResponseEntity.ok((PlayerProducer) pageable);
+    }
+
     public PlayerProducerController(PlayerProducerService playerProducerService){
         this.playerProducerService=playerProducerService;
     }
