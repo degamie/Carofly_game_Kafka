@@ -1,4 +1,4 @@
-//WID(17/07/2026)(Sarthak Mittal(DegamieSign)(PlayerProduicerService)#1.1.1.1.1
+//WID(19/07/2026)(Sarthak Mittal(DegamieSign)(PlayerProduicerService)#1.1.1.1.1
 package com.kafka.Carofly.service;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -9,14 +9,26 @@ import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 import tools.jackson.databind.ObjectMapper;
 
+import java.util.List;
 import java.util.logging.Logger;
 @Service
 @EnableCaching
 
-public class PlayerProducerService {
-
+public class PlayerProducerService<T> {
     @Autowired
     public PlayerProducer producer;
+    private void setplayerProducer(PlayerProducer playerProducer) {this.producer=producer;  }
+
+    private List<PlayerProducer> getplayerProducer(PlayerProducer playerProducer) {
+        return playerProducer;
+    }
+    public void updateByproducer(PlayerProducer playerProducer){
+        getplayerProducer(playerProducer)+setplayerProducer(playerProducer)+1;
+    }
+
+
+
+
     public  void existsByplayerTopic(String playerTopic){
         if(playerTopic.length()!=0)getPlayerTopic(playerTopic);
         else getPlayerTopic(0);
