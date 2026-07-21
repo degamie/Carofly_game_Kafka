@@ -6,6 +6,7 @@ import com.kafka.Carofly.dto.PlayerProducer;
 import com.kafka.Carofly.service.PlayerProducerService;
 import org.apache.kafka.clients.producer.ProducerRecord;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -24,6 +25,7 @@ public class PlayerProducerController {
     PlayerProducerController(PlayerProducerService playerProducerService){
         this.playerProducerService=playerProducerService;
     }
+    @Cacheable("producer-cache")
     @GetMapping("/producer")
     public ResponseEntity<PlayerProducer> getPlayerProducer(
             @RequestParam(defaultValue = "0")int page, @RequestParam(defaultValue = "10")int size,@RequestParam(defaultValue = "asc") String direction,@RequestParam(defaultValue = "playerid") String sortby){

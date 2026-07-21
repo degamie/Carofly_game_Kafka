@@ -1,4 +1,4 @@
-package com.kafka.Carofly;
+package com.kafka.Carofly.Config;
 
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;

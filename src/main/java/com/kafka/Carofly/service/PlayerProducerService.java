@@ -18,6 +18,7 @@ import java.util.logging.Logger;
 @EnableCaching
 
 public class PlayerProducerService<T> {
+
     @Autowired
     public PlayerProducer producer;
     private void setplayerProducer(PlayerProducer playerProducer) {this.producer=producer;  }
