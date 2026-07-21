@@ -1,4 +1,4 @@
-//WID(18/07/2026)(Sarthak Mittal(Player producerController)#Impl.1Path
+//WID(21/07/2026)(Sarthak Mittal(Player producerController)#Impl.1Path
 package com.kafka.Carofly.Controller;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -21,6 +21,9 @@ import java.util.logging.Logger;
 @RequestMapping("/player_producer")
 @RestController
 public class PlayerProducerController {
+    PlayerProducerController(PlayerProducerService playerProducerService){
+        this.playerProducerService=playerProducerService;
+    }
     @GetMapping("/producer")
     public ResponseEntity<PlayerProducer> getPlayerProducer(
             @RequestParam(defaultValue = "0")int page, @RequestParam(defaultValue = "10")int size,@RequestParam(defaultValue = "asc") String direction,@RequestParam(defaultValue = "playerid") String sortby){

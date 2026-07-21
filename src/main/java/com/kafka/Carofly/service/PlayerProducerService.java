@@ -1,4 +1,4 @@
-//WID(19/07/2026)(Sarthak Mittal(DegamieSign)(PlayerProduicerService)#1.1.1.1.1
+//WID(21/07/2026)(Sarthak Mittal(DegamieSign)(PlayerProduicerService)(Async0
 package com.kafka.Carofly.service;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -6,19 +6,22 @@ import com.kafka.Carofly.dto.PlayerProducer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.kafka.core.KafkaTemplate;
+import org.springframework.scheduling.annotation.Async;
+import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.stereotype.Service;
 import tools.jackson.databind.ObjectMapper;
 
 import java.util.List;
 import java.util.logging.Logger;
 @Service
+@EnableAsync
 @EnableCaching
 
 public class PlayerProducerService<T> {
     @Autowired
     public PlayerProducer producer;
     private void setplayerProducer(PlayerProducer playerProducer) {this.producer=producer;  }
-
+@Async('player-producer')
     private List<PlayerProducer> getplayerProducer(PlayerProducer playerProducer) {
         return playerProducer;
     }
