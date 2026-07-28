@@ -40,7 +40,7 @@ public void setPlaayerspeedaccuracy(Integer plaayerspeedaccuracy){this.plaayersp
     public void setplayerSpeedaccuracy(Integer playerspeedaccuracy){this.playerspeedaccuracy=playerspeedaccuracy;}
     public KafkaTemplate<String,String> kafkaTemplate=null;
     public String getPlayerId(String playerId){return playerId;}//Fetching PlayerID in GameApp
-    PlayerProducer(String playerId,String playername,int score,DateTimeFormatters playermodifieddate,Integer plaayerspeedaccuracy){
+    public PlayerProducer(String playerId, String playername, int score, DateTimeFormatters playermodifieddate, Integer plaayerspeedaccuracy){
         this.playerId=playerId;
         this.plaayerspeedaccuracy=plaayerspeedaccuracy;
         this.playername=playername;

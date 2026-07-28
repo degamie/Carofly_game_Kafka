@@ -1,27 +1,48 @@
-//WID(21/07/2026)(Sarthak Mittal(DegamieSign)(PlayerProduicerService)(Async0
+//WID(28/07/2026)(Sarthak Mittal(DegamieSign)(PlayerProduicerService)(Async0
 package com.kafka.Carofly.service;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.kafka.Carofly.Config.JwtUtil;
 import com.kafka.Carofly.dto.PlayerProducer;
+import com.kafka.Carofly.dto.PlayerProducerEnum;
+import org.apache.kafka.clients.producer.ProducerRecord;
+import org.apache.kafka.common.header.internals.RecordHeader;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.EnableCaching;
+import org.springframework.kafka.annotation.EnableKafka;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.stereotype.Service;
 import tools.jackson.databind.ObjectMapper;
 
+import java.nio.charset.StandardCharsets;
 import java.util.List;
 import java.util.logging.Logger;
+
+import static com.kafka.Carofly.dto.PlayerProducerEnum.PLAYERID;
+
 @Service
+@EnableKafka
 @EnableAsync
 @EnableCaching
 
 public class PlayerProducerService<T> {
+//    public PlayerProducerEnum playerProducerEnum;
+    @Autowired
+    public JwtUtil jwtUtil;
 
     @Autowired
     public PlayerProducer producer;
     private void setplayerProducer(PlayerProducer playerProducer) {this.producer=producer;  }
+    public void sendChatMessage(PlayerProducer playerProducer) {
+        String token = jwtUtil.generateToken(playerProducer.getPlayerId(PLAYERID));
+
+        ProducerRecord<String,PlayerProducer> record=new PlayerProducer("client-chat-messages", playerProducer.getPlayerId(PLAYERID), playerProducer);
+        record.headers().add(new RecordHeader("Authorization", token.getBytes(StandardCharsets.UTF_8)));
+        kafkaTemplate.send(record);
+
+    }
 @Async('player-producer')
     private List<PlayerProducer> getplayerProducer(PlayerProducer playerProducer) {
         return playerProducer;
@@ -29,8 +50,6 @@ public class PlayerProducerService<T> {
     public void updateByproducer(PlayerProducer playerProducer){
         getplayerProducer(playerProducer)+setplayerProducer(playerProducer)+1;
     }
-
-
 
 
     public  void existsByplayerTopic(String playerTopic){
