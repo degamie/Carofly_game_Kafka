@@ -1,4 +1,4 @@
-//WID(21/07/2026)(Sarthak Mittal(Player producerController)#Impl.1Path
+//WID(29/07/2026)(Sarthak Mittal(Player producerController)#Impl.1Path
 package com.kafka.Carofly.Controller;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -12,6 +12,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.http.ResponseEntity;
 import org.springframework.kafka.core.KafkaTemplate;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import tools.jackson.databind.ObjectMapper;
@@ -24,6 +25,11 @@ import java.util.logging.Logger;
 public class PlayerProducerController {
     PlayerProducerController(PlayerProducerService playerProducerService){
         this.playerProducerService=playerProducerService;
+    }
+    @Async("-player-producer")
+    @GetMapping("/producer")
+    public String getPlayerProducer(@RequestBody PlayerProducer playerProducer){
+        return "Player Producer sends Player Retrieved Notifications in Carolfy live Game Server";
     }
     @Cacheable("producer-cache")
     @GetMapping("/producer")
@@ -68,9 +74,7 @@ public class PlayerProducerController {
     public String getPlayerProducerId(@RequestBody PlayerProducer playerProducer, @RequestParam String playerId){
         return playerProducerService.getPlayerProducerId(playerId);
     }
-    @GetMapping("/producer")
-    public String getPlayerProducer(@RequestBody PlayerProducer playerProducer){
-        return "Player Producer sends Player Retrieved Notifications in Carolfy live Game Server";
-    }
+
+
 
 }
