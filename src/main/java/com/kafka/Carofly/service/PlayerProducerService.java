@@ -1,4 +1,4 @@
-//WID(28/07/2026)(Sarthak Mittal(DegamieSign)(PlayerProduicerService)(Async0
+//WID(03/08/2026)(Sarthak Mittal(DegamieSign)(PlayerProduicerService)(CacheAble)
 package com.kafka.Carofly.service;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -8,6 +8,7 @@ import com.kafka.Carofly.dto.PlayerProducerEnum;
 import org.apache.kafka.clients.producer.ProducerRecord;
 import org.apache.kafka.common.header.internals.RecordHeader;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.kafka.annotation.EnableKafka;
 import org.springframework.kafka.core.KafkaTemplate;
@@ -35,6 +36,7 @@ public class PlayerProducerService<T> {
     @Autowired
     public PlayerProducer producer;
     private void setplayerProducer(PlayerProducer playerProducer) {this.producer=producer;  }
+    @Cacheable(value ="player-producer")
     public void sendChatMessage(PlayerProducer playerProducer) {
         String token = jwtUtil.generateToken(playerProducer.getPlayerId(PLAYERID));
 
