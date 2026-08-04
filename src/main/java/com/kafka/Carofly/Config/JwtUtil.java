@@ -1,3 +1,4 @@
+//WID(4/8/2026)(Sarthak Mittal(DegamieSign)
 package com.kafka.Carofly.Config;
 
 import io.jsonwebtoken.JwtException;
@@ -15,7 +16,9 @@ import java.util.Date;
 @Configuration
 @Component
     public class JwtUtil {
-
+public JwtUtil(String secretKey){
+    this.secretKey=secretKey;
+}
         @Value("${jwt.secret}")
         private String secretKey;
 
