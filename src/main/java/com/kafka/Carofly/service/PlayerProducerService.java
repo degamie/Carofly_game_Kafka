@@ -1,4 +1,4 @@
-//WID(03/08/2026)(Sarthak Mittal(DegamieSign)(PlayerProduicerService)(CacheAble)
+//WID(16/08/2026)(Sarthak Mittal(DegamieSign)(PlayerProduicerService)(CacheAble)
 package com.kafka.Carofly.service;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -45,6 +45,7 @@ public class PlayerProducerService<T> {
         kafkaTemplate.send(record);
 
     }
+    @Cacheable(value = "player-producer")
 @Async('player-producer')
     private List<PlayerProducer> getplayerProducer(PlayerProducer playerProducer) {
         return playerProducer;
