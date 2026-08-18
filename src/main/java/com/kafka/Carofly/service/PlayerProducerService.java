@@ -35,9 +35,13 @@ public class PlayerProducerService<T> {
     void setJwtUtil(JwtUtil jwtUtil){
         this.jwtUtil=jwtUtil;
     }
-
+    private Object getObjectMapper(ObjectMapper objectMapper) {
+        return objectMapper;
+    }
     @Autowired
     public PlayerProducer producer;
+    public void updateByobjectMapper(ObjectMapper objectMapper){getObjectMapper(objectMapper)+setObjectMapper(objectMapper)+1;}
+
     private void setplayerProducer(PlayerProducer playerProducer) {this.producer=producer;  }
     @Cacheable(value ="player-producer")
     public void sendChatMessage(PlayerProducer playerProducer) {
@@ -89,6 +93,8 @@ public class PlayerProducerService<T> {
     public ObjectMapper objectMapper;
     public String PLAYER_TOPIC=new String();
     public KafkaTemplate kafkaTemplate;
+
+
 
     @Autowired
     public PlayerProducer producer;
