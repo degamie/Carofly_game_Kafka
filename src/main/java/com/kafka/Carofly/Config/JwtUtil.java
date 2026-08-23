@@ -1,4 +1,4 @@
-//WID(4/8/2026)(Sarthak Mittal(DegamieSign)
+//WID(23/8/2026)(Sarthak Mittal(DegamieSign)
 package com.kafka.Carofly.Config;
 
 import io.jsonwebtoken.JwtException;
@@ -16,6 +16,10 @@ import java.util.Date;
 @Configuration
 @Component
     public class JwtUtil {
+    String token;
+    void setgenerateToken(String token){
+        this.token= generateToken(token);
+    }
 public JwtUtil(String secretKey){
     this.secretKey=secretKey;
 }
