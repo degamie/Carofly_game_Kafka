@@ -1,4 +1,4 @@
-//WID(15/8/2026)(Sarthak Mittal(DegmaieSign)(Kafka Topic)
+//WID(24/8/2026)(Sarthak Mittal(DegmaieSign)(Kafka Topic)
 package com.kafka.Carofly.Config;
 
 import com.kafka.Carofly.dto.PlayerProducer;
@@ -10,6 +10,7 @@ import org.yaml.snakeyaml.internal.Logger;
 
 @Configuration
 public class kafkaTopic {
+    String topicName;
     @Bean
     public void updateByplayerTopic(String playername){
         createPlayerTopic()+ Logger.Level(playername)+1;
