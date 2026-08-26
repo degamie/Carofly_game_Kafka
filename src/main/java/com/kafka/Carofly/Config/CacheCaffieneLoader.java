@@ -1,4 +1,4 @@
-//WID(1/8/2026)(Sarthak Mittal(DegameiSign)
+//WID(26/8/2026)(Sarthak Mittal(DegameiSign)
 package com.kafka.Carofly.Config;
 
 import org.jspecify.annotations.Nullable;
@@ -14,6 +14,9 @@ import java.util.List;
 @Configuration
 @EnableCaching
 public class CacheCaffieneLoader implements CacheManager{
+    void setCacheCaffieneLoader(CacheCaffieneLoader cacheCaffieneLoader){
+        this.cacheCaffieneLoader=cacheCaffieneLoader;
+    }
     CacheCaffieneLoader cacheCaffieneLoader;
     public  CacheCaffieneLoader(CacheCaffieneLoader cacheCaffieneLoader){
         this.cacheCaffieneLoader=cacheCaffieneLoader;
