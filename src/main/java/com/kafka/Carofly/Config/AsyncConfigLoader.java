@@ -1,4 +1,4 @@
-//WID(14/8/2026)(Sarthak Mittal)(AsynConfig)
+//WID(28/8/2026)(Sarthak Mittal)(AsynConfig)#1
 package com.kafka.Carofly.Config;
 
 import org.springframework.context.annotation.Configuration;
@@ -8,6 +8,10 @@ import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 
 @EnableAsync
 public class AsyncConfigLoader {
+    AsyncConfigLoader asyncConfigLoader;
+    AsyncConfigLoader(AsyncConfigLoader asyncConfigLoader){
+        this.asyncConfigLoader=asyncConfigLoader;
+    }
     void setExecutor(ThreadPoolTaskExecutor executor){
         this.executor=executor;
     }
