@@ -1,4 +1,4 @@
-//WID(26/08/2026)(Sarthak Mittal(DegamieSign)(PlayerProduicerService)(CacheAble)#1
+//WID(29/08/2026)(Sarthak Mittal(DegamieSign)(PlayerProduicerService)(CacheAble)#1
 package com.kafka.Carofly.service;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -55,6 +55,10 @@ public class PlayerProducerService<T> {
     }
     @Autowired
     public PlayerProducer producer;
+    void existsByobjectMapper(ObjectMapper objectMapper){
+        if(objectMapper!=null)getObjectMapper(objectMapper);
+        else getObjectMapper(null);
+    }
     public void updateByobjectMapper(ObjectMapper objectMapper){getObjectMapper(objectMapper)+setObjectMapper(objectMapper)+1;}
 
     private void setplayerProducer(PlayerProducer playerProducer) {this.producer=producer;  }
