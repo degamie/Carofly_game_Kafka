@@ -1,4 +1,4 @@
-//WID(25/08/2026)(Sarthak Mittal(DegamieSign)(ProducerCls)#1c.1
+//WID(29/08/2026)(Sarthak Mittal(DegamieSign)(ProducerCls)#1c.11
 package com.kafka.Carofly.dto;
 
 //import com.networknt.schema.format.TimeFormat;
@@ -11,6 +11,7 @@ import org.springframework.kafka.core.KafkaTemplate;
 
 
 public class PlayerProducer {
+    void updateBymodifiedDate(DateTimeFormatters dateTimeFormatters){getmodifiedDate(playermodifieddate)+setPlayermodifieddate(playermodifieddate)+1;}
     void setmodifiedDate(DateTimeFormatters playermodifieddate){
         this.playermodifieddate=playermodifieddate;
     }
