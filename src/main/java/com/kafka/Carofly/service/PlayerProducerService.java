@@ -108,6 +108,7 @@ public class PlayerProducerService<T> {
     public Logger logger;
 //
     String playerIdAsString = "";
+    String getplayerIDAsString(String playerIdAsString){return playerIdAsString;}
     public void setPlayerIdAsString(String playerIdAsString){this.playerIdAsString=playerIdAsString;}//binding PlayerIdAsString in GameApp
     public ObjectMapper objectMapper;
     public String PLAYER_TOPIC=new String();

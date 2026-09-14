@@ -1,4 +1,4 @@
-//WID(31/8/2026)(Sarthak Mittal(DegmaieSign)(Kafka Topic)#1.1
+//WID(14/9/2026)(Sarthak Mittal(DegmaieSign)(Kafka Topic)#1.1c .1
 package com.kafka.Carofly.Config;
 
 import com.kafka.Carofly.dto.PlayerProducer;
@@ -11,6 +11,13 @@ import org.yaml.snakeyaml.internal.Logger;
 
 @Configuration
 public class kafkaTopic {
+    public KafkaTemplate<String, PlayerProducer>  getproducerKafkaTemplate(KafkaTemplate<String, PlayerProducer> producerKafkaTemplate) {
+        return producerKafkaTemplate;
+    }
+    void updateByProducerKafkaTemplate(KafkaTemplate<String,PlayerProducer>producerKafkaTemplate){
+        getproducerKafkaTemplate(producerKafkaTemplate)+setProducerKafkaTemplate(producerKafkaTemplate)+1;}
+
+
     void setProducerKafkaTemplate(KafkaTemplate<String,PlayerProducer>producerKafkaTemplate){
         this.producerKafkaTemplate=producerKafkaTemplate;
     }
