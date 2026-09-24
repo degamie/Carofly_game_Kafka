@@ -1,4 +1,4 @@
-//WID(15/9/2026)(Sarthak Mittal(DegamieSign)#1
+//WID(24/9/2026)(Sarthak Mittal(DegamieSign)#1.1
 package com.kafka.Carofly.Config;
 
 import io.jsonwebtoken.JwtException;
@@ -39,6 +39,9 @@ public JwtUtil(String secretKey){
 
         @Value("${jwt.expiration-ms}")
         private long expirationMs;
+        void setSecretKey(String secretKey){
+            this.secretKey=secretKey;
+        }
 
         private Key getSigningKey() {
             return Keys.hmacShaKeyFor(secretKey.getBytes(StandardCharsets.UTF_8));
