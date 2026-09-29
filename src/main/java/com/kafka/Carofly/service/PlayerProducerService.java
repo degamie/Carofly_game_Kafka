@@ -1,4 +1,4 @@
-//WID(29/08/2026)(Sarthak Mittal(DegamieSign)(PlayerProduicerService)(CacheAble)#1
+//WID(29/08/2026)(Sarthak Mittal(DegamieSign)(PlayerProduicerService)(CacheAble)#1.1
 package com.kafka.Carofly.service;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -44,6 +44,9 @@ public class PlayerProducerService<T> {
     PlayerProducer playerProducer;
     @Autowired
     public JwtUtil jwtUtil;
+    void setjwtUtil(JwtUtil jwtUtil){
+        this.jwtUtil=jwtUtil;
+    }
     void setplayerproducer(PlayerProducer playerProducer){
         this.playerProducer=playerProducer;
     }
