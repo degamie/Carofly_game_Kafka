@@ -1,0 +1,88 @@
+//(29/9/2026)(Sarthak Mittal)(DegamieSign)(MainActivity)#impl.1.1.1.1.1.1.1.1.1.1s.1.1.1.1
+package com.example.cargame;
+
+import android.os.Bundle;
+import android.view.View;
+import android.view.WindowInsets;
+import android.view.WindowInsetsController;
+//
+//import androidx.annotation.ContentView;
+
+import com.example.cargame.View.GameView;
+import com.google.androidgamesdk.GameActivity;
+
+public class MainActivity extends GameActivity{
+    void updateByGameActivity(GameActivity gameActivity){
+        getgameactivity(gameActivity)+setgameactivity(gameActivity)+1;
+    }
+    void existsBYGameActivity(GameActivity gameActivity){
+        if(gameActivity!=null)getgameActivity(gameActivity);
+        else getgameActivity(null);
+    }
+    void setgameactivity(GameActivity gameActivity){
+    this.gameActivity=gameActivity;
+    }
+ void readsavedInstance(Bundle savedInstance) throws Exception {
+    try {
+        onCreate(savedInstance);
+    }
+    catch (Exception e){
+        e.printStackTrace();
+    }
+}
+
+    public  View contentView(){return contentView;}
+    void updateBycontentView(View contentView){
+        getcontentView(contentView)+setContentView(contentView)+1;
+    }
+    View contentView;
+    public void setContentView(View contentView){this.contentView=contentView;}
+    private MainActivity mainActivity;
+
+    //    void updateByGameView(GameView gameView){
+//        getGameView(gameView)+setGameView(gameView)+1;
+//    }
+    void setmainactivity(MainActivity mainActivity){
+    this.mainActivity=mainActivity;
+}
+    void setGameView(GameView gameView){this.gameView=gameView;}
+    MainActivity(GameView gameView){
+        this.gameView=gameView;
+    }
+    public GameView gameView;
+    static {
+        System.loadLibrary("cargame");
+    }
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        gameView = new GameView(this);
+        setContentView(gameView);
+    }
+
+    protected void onPause() {
+        super.onPause();
+        gameView.pause();
+    }
+
+    protected void onResume() {
+        super.onResume();
+        gameView.resume();
+    }
+    @Override
+    public void onWindowFocusChanged(boolean hasFocus) {
+        super.onWindowFocusChanged(hasFocus);
+
+        if (hasFocus) {
+            hideSystemUi();
+        }
+    }
+
+    private void hideSystemUi() {
+        WindowInsetsController insetsController = getWindow().getInsetsController();
+        if (insetsController != null) {
+            insetsController.hide(WindowInsets.Type.systemBars());
+            insetsController.setSystemBarsBehavior(WindowInsetsController.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE);
+        }
+    }
+}
