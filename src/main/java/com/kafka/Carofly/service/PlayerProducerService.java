@@ -1,4 +1,4 @@
-//WID(29/08/2026)(Sarthak Mittal(DegamieSign)(PlayerProduicerService)(CacheAble)#1.1
+//WID(02/10/2026)(Sarthak Mittal(DegamieSign)(PlayerProduicerService)(CacheAble)#1.1.1
 package com.kafka.Carofly.service;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -29,6 +29,10 @@ import static com.kafka.Carofly.dto.PlayerProducerEnum.PLAYERID;
 @EnableCaching
 
 public class PlayerProducerService<T> {
+    String playerIdAsString = "";
+    void updateByplayerIdAsString(String playerIdAsString){
+        getplayerIDAsString(playerIdAsString)+setPlayerIdAsString(playerIdAsString)+1;
+    }
     void existsByplayerproducer(PlayerProducer playerProduce){
         if(playerProduce.exists(playerProduce)){
             getplayerProducer(playerProducer);
@@ -89,6 +93,7 @@ public class PlayerProducerService<T> {
         else getPlayerTopic(0);
     }
     public  String playerTopic=null;
+
     private void  setPlayerTopic(String playerTopic) {this.playerTopic=playerTopic;}
     private   String getPlayerTopic(String playerTopic) {return playerTopic;}
     public void updateByPLAYER_TOPIC(String PLAYER_TOPIC){getPlayerTopic(PLAYER_TOPIC)+setPlayerTopic(PLAYER_TOPIC)+1;}//
@@ -110,7 +115,7 @@ public class PlayerProducerService<T> {
     }
     public Logger logger;
 //
-    String playerIdAsString = "";
+
     String getplayerIDAsString(String playerIdAsString){return playerIdAsString;}
     public void setPlayerIdAsString(String playerIdAsString){this.playerIdAsString=playerIdAsString;}//binding PlayerIdAsString in GameApp
     public ObjectMapper objectMapper;
