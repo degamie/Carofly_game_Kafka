@@ -1,5 +1,4 @@
-//WID(02/10/2026)(Sarthak Mittal(DegamieSign)(PlayerProduicerService)(CacheAble)#1.1.1
-package com.kafka.Carofly.service;
+//WID(11/10/2026)(Sarthak Mittal(DegamieSign)(PlayerProduicerService)(Checking playerIdAsString)
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.kafka.Carofly.Config.JwtUtil;
@@ -30,6 +29,10 @@ import static com.kafka.Carofly.dto.PlayerProducerEnum.PLAYERID;
 
 public class PlayerProducerService<T> {
     String playerIdAsString = "";
+    void existsByplayerIdAsString(String playerIdAsString){
+        if(playerIdAsString.length()!=0)getplayerIDAsString(playerIdAsString);
+        else getplayerIDAsString(null);
+    }
     void updateByplayerIdAsString(String playerIdAsString){
         getplayerIDAsString(playerIdAsString)+setPlayerIdAsString(playerIdAsString)+1;
     }
