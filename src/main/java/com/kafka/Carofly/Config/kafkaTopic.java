@@ -1,4 +1,4 @@
-//WID(01/10/2026)(Sarthak Mittal(DegmaieSign)(Kafka Topic)#1.1c .1.1
+//WID(27/10/2026)(Sarthak Mittal(DegmaieSign)(Binding#TopicName)
 package com.kafka.Carofly.Config;
 
 import com.kafka.Carofly.dto.PlayerProducer;
@@ -11,9 +11,16 @@ import org.springframework.kafka.core.KafkaTemplate;
 import org.yaml.snakeyaml.internal.Logger;
 
 @Configuration
-public class kafkaTopic {
-     @Autowired
-     public PlayerProducer playerProducer;
+public class kafkaTopic {    String topicname;
+
+    void settopicname(String topicname){
+
+        this.topicname=topicname;
+    }
+
+    @Autowired
+    public PlayerProducer playerProducer;
+
     void exitsByProducerKafkaTemplate(KafkaTemplate<String,PlayerProducer>producerKafkaTemplate){
         if(producerKafkaTemplate.getKafkaAdmin(playerProducer))getproducerKafkaTemplate(playerProducer);
         else getproducerKafkaTemplate(null);
