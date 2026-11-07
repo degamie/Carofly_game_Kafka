@@ -1,8 +1,9 @@
-//WID(23/07/2026)(Sarthak Mittal(DegamieSign)(ProducerCls)#1c
+//WID(07/11/2026)(Sarthak Mittal(DegamieSign)(ProducerCls)(PlayerSpeedaccuracy)
 package com.kafka.Carofly.dto;
 
 //import com.networknt.schema.format.TimeFormat;
 import java.time.LocalTime;
+import java.util.Date;
 
 import org.springframework.boot.autoconfigure.web.format.DateTimeFormatters;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -10,6 +11,21 @@ import org.springframework.kafka.core.KafkaTemplate;
 
 
 public class PlayerProducer {
+    void existsByplayeraccuracy(Integer plaayerspeedaccuracy){
+        if(plaayerspeedaccuracy.equals(1))getplaayerspeedaccuracy(plaayerspeedaccuracy);
+        else getplaayerspeedaccuracy(0);
+    }
+    void updateBymodifiedDate(DateTimeFormatters dateTimeFormatters){getmodifiedDate(playermodifieddate)+setPlayermodifieddate(playermodifieddate)+1;}
+    void setmodifiedDate(DateTimeFormatters playermodifieddate){
+        this.playermodifieddate=playermodifieddate;
+    }
+    public void existsBYmodifieddateCreated(DateTimeFormatters playermodifieddate){
+        if(playermodifieddate!==null)getmodifiedDate(playermodifieddate);
+        else  getmodifiedDate(null);
+    }
+    public void updateBYdatemodifiedcreated(DateTimeFormatters playermodifieddate){
+        getmodifiedDate(playermodifieddate)+setPlayermodifieddate(playermodifieddate)+1;
+    }
     public void updateByplayerSpeedAccruacy(Integer playerSpeedAccuracy){
         getplaayerspeedaccuracy(playerSpeedAccuracy)+setplayerSpeedaccuracy(playerSpeedAccuracy)+1;
     }
@@ -28,6 +44,9 @@ public void setPlaayerspeedaccuracy(Integer plaayerspeedaccuracy){this.plaayersp
 
     public String playerId;
     public String playername;
+    void setplayername(String playername){
+        this.playername=playername;
+    }
     public  int score;
     public void setscore(int score){this.score=score;}//bindinng Score in GameApp
 
