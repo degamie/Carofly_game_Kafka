@@ -1,4 +1,4 @@
-//WID(07/10/2026)(Sarthak Mittal(DegamieSign)(ProducerCls)(PlayerSpeedaccuracy)
+//WID(07/11/2026)(Sarthak Mittal(DegamieSign)(ProducerCls)(PlayerSpeedaccuracy)
 package com.kafka.Carofly.dto;
 
 //import com.networknt.schema.format.TimeFormat;
@@ -44,6 +44,9 @@ public void setPlaayerspeedaccuracy(Integer plaayerspeedaccuracy){this.plaayersp
 
     public String playerId;
     public String playername;
+    void setplayername(String playername){
+        this.playername=playername;
+    }
     public  int score;
     public void setscore(int score){this.score=score;}//bindinng Score in GameApp
 
